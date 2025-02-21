@@ -94,6 +94,9 @@
   height: 25px;
   width: 25px;
 }
+#search-box{
+  font-size: larger;
+}
 
 .emp-home-main-search input {
   height: 25px;
