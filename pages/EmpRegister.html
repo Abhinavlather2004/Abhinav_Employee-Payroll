@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll Form</title>
+    
+    <link rel="stylesheet" href="../styles/EmpRegister.css">
+    
+</head>
+
+<body>
+    <div class="emp-reg-outer-div">
+        <!-- Header Section -->
+        <div class="emp-reg-header-div">
+            <div class="emp-reg-header-inner-div">
+                
+                    <div class="emp-reg-header-icon">
+                        <img class="emp-reg-header-logo" src="../assets/icon.jpeg" alt="Logo Not Found">
+                        <div class="emp-reg-header-text">
+                            <a href="./EmpDashboard.html" style="text-decoration: none; color: inherit;">
+                                <div class="emp-home-header-title" id="emp" style="display: block;">EMPLOYEE</div>
+                                <div class="emp-home-header-title" id="pay" style="display: block;">PAYROLL</div>
+                            </a>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        <!-- Body Section -->
+        <div class="emp-reg-body-div">
+            <div class="emp-reg-body-form">
+                <div class="emp-reg-form-heading">Employee Payroll Form</div>
+                <div class="emp-reg-main-form">
+                    <form action="">
+                        <!-- Name -->
+                        <div class="emp-reg-form-field">
+                            <div class="question">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="answer">
+                                <input type="text" name="name" id="form-name" required>
+                            </div>
+                        </div>
+
+                        <!-- Profile Image -->
+                        <div class="emp-reg-form-checkbox">
+                            <div class="question">
+                                <label for="profile-image">Profile Image</label>
+                            </div>
+                            <div class="answer">
+                                <label>
+                                    <input type="radio" name="profile" id="profile1" value="../assets/user1.jpeg"
+                                        required>
+                                    <img src="../assets/user1.jpeg" alt="User 1">
+                                </label>
+                                <label>
+                                    <input type="radio" name="profile" id="profile2" value="../assets/user2.jpeg"
+                                        required>
+                                    <img src="../assets/user2.jpeg" alt="User 2">
+                                </label>
+                                <label>
+                                    <input type="radio" name="profile" id="profile3" value="../assets/user3.jpeg"
+                                        required>
+                                    <img src="../assets/user3.jpeg" alt="User 3">
+                                <label>
+                                <label>
+                                    <input type="radio" name="profile" id="profile4" value="../assets/user4.jpeg"
+                                        required>
+                                    <img src="../assets/user4.jpeg" alt="User 4">
+                                <label>
+                            </div>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="emp-reg-form-checkbox">
+                            <div class="question">
+                                <label for="gender">Gender</label>
+                            </div>
+                            <div class="answer">
+                                <label>
+                                    <input type="radio" id="male" name="gender" value="Male" required>
+                                    <label for="male">Male</label>
+                                <label>
+                                <label>
+                                    <input type="radio" id="female" name="gender" value="Female" required>
+                                    <label for="female">Female</label>
+                                <label>
+                            </div>
+                        </div>
+
+                        <!-- Department -->
+                        <div class="emp-reg-form-checkbox">
+                            <div class="question">
+                                <div for="department">Department</div>
+                            </div>
+                            <div class="answer">
+                                <label>
+                                    <input type="checkbox" id="hr" name="department" value="HR">
+                                    <label for="hr">HR</label>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="sales" name="department" value="Sales">
+                                    <label for="sales">Sales</label>
+                                  </label>
+                                <label>
+                                    <input type="checkbox" id="finance" name="department" value="Finance">
+                                    <label for="finance">Finance</label>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="engineering" name="department" value="Engineering">
+                                    <label for="engineering">Engineering</label>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="others" name="department" value="Others">
+                                    <label for="others">Others</label>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Salary -->
+                        <div class="emp-reg-form-field">
+                            <div class="question">
+                                <label for="salary">Salary</label>
+                            </div>
+                            <div class="answer">
+                                <select id="salary" name="salary" required>
+                                    <option value="">Select Salary</option>
+                                    <option value="30000">30,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="70000">70,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Start Date -->
+                        <div class="emp-reg-form-field">
+                            <div class="question">
+                                <label for="start-date">Start Date</label>
+                                <!-- <span>Start Date</span> -->
+                            </div>
+                            <div class="answer">
+                                <div class="date-drop-down">
+                                    <select id="day" name="day" required>
+                                        <option value="">Date</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="3">4</option>
+                                        <option value="3">5</option>
+                                        <option value="3">6</option>
+                                        <option value="3">7</option>
+                                        <option value="3">8</option>
+                                        <option value="3">9</option>
+                                        <option value="3">10</option>
+                                    </select>
+                                    <select id="month" name="month" required>
+                                        <option value="">Month</option>
+                                        <option value="January">January</option>
+                                        <option value="February">February</option>
+                                        <option value="March">March</option>
+                                        <option value="April">April</option>
+                                        <option value="May">May</option>
+                                        <option value="June">June</option>
+                                    </select>
+                                    <select id="year" name="year" required>
+                                        <option value="">Year</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="emp-reg-form-field">
+                            <div class="question">
+                                <label for="notes">Notes</label>
+                            </div>
+                            <div class="answer">
+                                <textarea id="notes" name="notes" rows="4" placeholder="Type your note here "></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="emp-reg-form-buttons">
+                            <div class="left-div">
+                                <button type="button" id="cancel-btn" class="button">Cancel</button>
+                            </div>
+                            <div class="right-div">
+                                <button type="submit"  id="submit-btn" class="button">Submit</button>
+                                <button type="reset" id="reset-btn" class="button">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/EmpRegister.js"></script>
+</body>
+
+</html>
