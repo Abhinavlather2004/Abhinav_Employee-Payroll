@@ -1,271 +1,235 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-.emp-reg-outer-div {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+body,html{
+    width: 100%;
+    height: 100%;
 }
 
-.emp-reg-header-div {
-  width: 100%;
-  height: 25%;
-  background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
+.emp-reg-outer-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* border: 2px solid red; */
 }
 
-.emp-reg-header-inner-div {
-  height: 100%;
-  width: 80%;
-  display: flex;
-  align-items: center;
+.emp-reg-header-div{
+    /* border: 2px solid blue; */
+    width: 100%;
+    height: 13.25vh;
+    display: flex;
 }
 
-.emp-reg-header-icon {
-  height: 85%;
-  width: 30%;
-  display: flex;
-  flex-direction: row;
-  padding: 12px 0px;
-  font: normal normal bold 22px/25px Montserrat;
+.emp-reg-header-logo-img{
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 2em;
+    left: 15em
 }
 
-.emp-reg-header-icon img {
-  height: 50.24px;
-  width: 46.57px;
+.emp-reg-header-title{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    top: 2em;
+    left: 15.5em;
 }
 
-.emp-reg-header-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 18px;
-  margin-left: 5px;
+.emp-reg-header-title span:first-child{
+    font-weight: bold;
+    color: #82A70C;
 }
 
-#emp {
-  color: #82A70C;
-}
-
-#pay {
-  color: #42515F;
-}
-
-.emp-reg-body-div {
-  width: 100%;
-  background-color: #00000029;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.emp-reg-body-form {
-  padding-bottom: 35px;
-  padding-top: 50px;
-  height: 100%;
-  width: 60%;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  background-color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.emp-reg-main-form {
-  width: 85%;
-  height: 85%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-}
-
-.emp-reg-form-heading {
-  color: #42515F;
-  font-size: 50px;
-  font: normal normal bold 22px/25px Montserrat;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.emp-reg-form-field {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.emp-reg-form-field label {
-  font-size: 18px;
-  color: #42515F;
-  width: 30%;
-  text-align: left;
-  margin-right: 10px;
-}
-
-.answer {
-  width: 100%;
-}
-
-.emp-reg-form-field input,
-.emp-reg-form-field select,
-.emp-reg-form-field textarea {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-
-textarea {
-  resize: none;
-}
-
-.emp-reg-form-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.emp-reg-form-checkbox label {
-  font-size: 18px;
-  color: #42515F;
-}
-
-.emp-reg-radio-btn,
-.emp-reg-form-checkbox div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.emp-reg-radio-btn input,
-.emp-reg-form-checkbox input {
-  margin-right: 5px;
-}
-
-.emp-reg-form-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.button {
-  background-color: #E2E2E2;
-  color: black;
-  border: solid 1px #969696;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 150px;
-  height: 53px;
-  text-align: center;
-  transition: 0.7s;
-}
-
-.button:hover {
-  opacity: 0.8;
-  background-color: #82A70C;
-  cursor: pointer;
-}
-
-.question {
-  width: 150px;
-}
-
-.answer img {
-  border-radius: 50%;
-}
-
-.date-drop-down {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+.emp-reg-header-title span:last-child{
+    font-weight: bold;
+    color: #42515F;
 }
 
 
+.emp-reg-form-div{
+    /* border: 2px solid green; */
+    width: 100%;
+    height: auto;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+}
 
-@media (max-width: 768px) {
-  .emp-reg-body-form {
-      width: 90%;
-  }
+.emp-reg-form{
+    /* border: 2px solid yellow; */
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 2em;
+    padding-left: 3em;
+    padding-bottom: 2em;
+    padding-right: 3em;
+    gap: 2em;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F5F5F5;
+    border-radius: 8px;
+    opacity: 1;
+    margin-top: 2em;
+}
 
-  .emp-reg-header-div {
-      height: auto;
-      padding: 1rem 0;
-  }
+.emp-reg-input-name-div{
+    display: flex;
+    gap: 4.7em;
+    align-items: center;
+}
 
-  .emp-reg-header-icon {
-      width: 100%;
-      justify-content: flex-start;
-  }
+.emp-reg-input-name-div input{
+    font-size: 15px;
+    padding-left: 1em;
+    color:#42515F;
+    width: 606px;
+    height: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+}
 
-  .emp-reg-header-text {
-      text-align: left;
-  }
+.emp-reg-input-profile-image-div{
+    display: flex;
+    gap: 1.7em;
+    align-items: center;
+}
 
-  .emp-reg-form-field,
-  .emp-reg-form-checkbox {
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-  }
+.emp-reg-input-profile-image-div div{
+    display: flex;
+    gap: 0.7em;
+}
 
-  .emp-reg-profile-img,
-  .emp-reg-form-gender,
-  .emp-reg-form-department {
-      align-items: flex-start !important;
-      text-align: left !important;
-      display: flex;
-      flex-direction: column;
-  }
+.emp-reg-input-profile-image-div input{
+    transform: scale(1.5);
+}
 
-  .emp-reg-form-checkbox .answer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-  }
+.emp-reg-input-profile-image-div label img{
+    border-radius: 50%;
+    width:2em;
+}
 
-  .emp-reg-form-checkbox .answer div {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-  }
+.emp-reg-input-gender-div{
+    display: flex;
+    gap: 4.4em;
+    align-items: center;
+}
 
-  .emp-reg-form-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-  }
+.emp-reg-input-gender-div div{
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
 
-  .emp-reg-form-buttons{
-      display: flex;
-      flex-direction: column;
-  }
+.emp-reg-input-gender-div input{
+    transform: scale(1.5);
+}
 
-  .left-div{
-      /* border: 1px solid brown; */
-      width: 100%;
-      display: flex;
-      justify-content: center;
-  }
+.emp-reg-input-department-div{
+    display: flex;
+    gap: 2.6em;
+}
 
-  .right-div{
-      /* border: 1px solid brown; */
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-  }
+.emp-reg-input-department-div div{
+    display: flex;
+    gap: 0.5em;
+}
 
-  .button{
-      width: 75%;
-  }
+.emp-reg-input-department-div input{
+    transform: scale(1.5);
+}
+
+.emp-reg-input-salary-div{
+    display: flex;
+    gap: 4.9em;
+}
+
+.emp-reg-input-salary-div select{
+    width: 341px;
+    height: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    text-align: left;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    opacity: 1;
+    padding-left: 0.5em;
+}
+
+
+.emp-reg-input-date-div{
+    display: flex;
+    gap: 3.2em;
+}
+
+.emp-reg-input-date-div div{
+    display: flex;
+    gap: 1em;
+}
+
+.emp-reg-input-date-div select{
+    width: 163px;
+    height: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    text-align: left;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    opacity: 1;
+    padding-left: 0.5em;
+}
+
+
+.emp-reg-textarea-notes-div{
+    display: flex;
+    gap: 5em;
+}
+
+.emp-reg-textarea-notes-div textarea{
+    all: unset;
+    width: 686px;
+    height: 104px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    opacity: 1;
+    font-size: 15px;
+    padding-left: 1em;
+}
+
+.emp-reg-buttons-div{
+    display: flex;
+    gap: 25em;
+}
+.emp-reg-buttons-div div{
+    display: flex;
+    gap: 1em;
+}
+
+.emp-reg-buttons-div button{
+    width: 6em;
+    height: 3em;
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    opacity: 1;
+    color: #42515F;
 }

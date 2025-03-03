@@ -1,108 +1,109 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const employeeListContainer = document.getElementById("employee-list");
-    const searchBox = document.getElementById("search-box");
-  
-    function renderEmployeeList(searchQuery = "") {
-      let employees = JSON.parse(localStorage.getItem("empList")) || [];
-  
-      // Filter employees based on search query
-      const filteredEmployees = employees.filter(employee =>
-        employee.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-  
-      // Clear the employee list container before rendering
-      employeeListContainer.innerHTML = "";
-  
-      filteredEmployees.forEach((employee, index) => {
-        // Create a div for each employee
-        const employeeDiv = document.createElement("div");
-        employeeDiv.classList.add("emp-home-emp1");
-  
-        // Construct inner HTML based on the expected structure
-        employeeDiv.innerHTML = `
-          <div class="reg-emp-name reg-name center">
-            <div style="width: 20%;">
-              <img src="${employee.profileImage}" alt="Profile Image">
-            </div>
-            <div style="width: 78%;">
-              <p>${employee.name}</p>
-            </div>
-          </div>
-          <div class="reg-emp-gender reg-gender center">${employee.gender}</div>
-          <div class="reg-emp-dept reg-dept center">
-            ${employee.department.map(dept => `<div class="dept">${dept}</div>`).join('')}
-          </div>
-          <div class="reg-emp-salary reg-salary center">$${employee.salary}</div>
-          <div class="reg-emp-start-date reg-start-date center">
-            ${typeof employee.startDate === "object" 
-              ? `${employee.startDate.day} ${employee.startDate.month} ${employee.startDate.year}`
-              : employee.startDate} 
-          </div>
-          <div class="reg-emp-actions reg-actions center">
-            <img src="../assets/deleteIcon.png" alt="Delete" class="action-icon delete" data-index="${index}">
-            <img src="../assets/editIcon.webp" alt="Edit" class="action-icon edit" data-index="${index}">
-          </div>
-        `;
-  
-        // Append the employee entry to the container
-        employeeListContainer.appendChild(employeeDiv);
-      });
-  
-      // Attach delete & edit event listeners after rendering
-      attachEventListeners();
+$(document).ready(function () {
+    let $employeeTableBody = $(".emp-dash-table-body");
+    let $addUserButton = $(".emp-dash-nav-add-user button");
+    let $searchBox = $("#emp-dash-main-search-box");
+
+    function loadEmployees() {
+        $.get("http://localhost:3000/employees", function (employees) {
+            $employeeTableBody.empty();
+
+            employees.forEach((employee, index) => {
+                let row = `<tr>
+                    <td>
+                        <div class="emp-dash-table-body-img">
+                            <img src="${employee.profileImage}" alt="Employee Photo">
+                            <span>${employee.name}</span>
+                        </div>
+                    </td>
+                    <td>${employee.gender}</td>
+                    <td>${employee.departments.join(", ")}</td>
+                    <td>${employee.salary}</td>
+                    <td>${employee.startDate}</td>
+                    <td class="emp-actions">
+                        <i class="fa-solid fa-pen edit-btn" data-id="${employee.id}"></i>
+                        <i class="fa-solid fa-trash delete-btn" data-id="${employee.id}"></i>
+                    </td>
+                </tr>`;
+                $employeeTableBody.append(row);
+            });
+
+            attachEventListeners();
+        }).fail(function (error) {
+            console.error("Error loading employees:", error);
+        });
     }
-  
+
+    function addEmployee() {
+        localStorage.removeItem("editEmployee");
+        window.location.href = "./empRegister.html";
+    }
+
+    function deleteEmployee() {
+        let id = $(this).data("id");
+        $.ajax({
+            url: `http://localhost:3000/employees/${id}`,
+            type: "DELETE",
+            success: function () {
+                loadEmployees();
+            },
+            error: function (error) {
+                console.error("Error deleting employee:", error);
+            }
+        });
+    }
+
+    function editEmployee() {
+        let id = $(this).data("id");
+        localStorage.setItem("editEmployeeId", id); // Temporarily store ID in localStorage
+        window.location.href = "./empRegister.html";
+    }
+
+    function searchByName() {
+        let searchValue = $searchBox.val().toLowerCase();
+        $.get("http://localhost:3000/employees", function (employees) {
+            let hasMatch = false;
+            $employeeTableBody.empty();
+
+            employees.forEach((employee, index) => {
+                if (employee.name.toLowerCase().includes(searchValue)) {
+                    let row = `<tr>
+                        <td>
+                            <div class="emp-dash-table-body-img">
+                                <img src="${employee.profileImage}" alt="Employee Photo">
+                                <span>${employee.name}</span>
+                            </div>
+                        </td>
+                        <td>${employee.gender}</td>
+                        <td>${employee.departments.join(", ")}</td>
+                        <td>${employee.salary}</td>
+                        <td>${employee.startDate}</td>
+                        <td class="emp-actions">
+                            <i class="fa-solid fa-pen edit-btn" data-id="${employee.id}"></i>
+                            <i class="fa-solid fa-trash delete-btn" data-id="${employee.id}"></i>
+                        </td>
+                    </tr>`;
+                    $employeeTableBody.append(row);
+                    hasMatch = true;
+                }
+            });
+
+            if (!hasMatch) {
+                $employeeTableBody.html('<tr><td colspan="6" style="text-align: center; font-weight: bold; color: red;">No matches found</td></tr>');
+            } else {
+                attachEventListeners();
+            }
+        }).fail(function (error) {
+            console.error("Error searching employees:", error);
+        });
+    }
+
     function attachEventListeners() {
-      const deleteButtons = document.querySelectorAll(".delete");
-      const editButtons = document.querySelectorAll(".edit");
-  
-      deleteButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const index = this.getAttribute("data-index");
-          deleteEmployee(index);
-        });
-      });
-  
-      editButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const index = this.getAttribute("data-index");
-          editEmployee(index);
-        });
-      });
+        $(".delete-btn").off("click").on("click", deleteEmployee);
+        $(".edit-btn").off("click").on("click", editEmployee);
     }
-  
-    function deleteEmployee(index) {
-      let employees = JSON.parse(localStorage.getItem("empList")) || [];
-  
-      // Remove employee at the given index
-      employees.splice(index, 1);
-  
-      // Update localStorage
-      localStorage.setItem("empList", JSON.stringify(employees));
-  
-      // Re-render employee list
-      renderEmployeeList(searchBox.value);
-    }
-  
-    function editEmployee(index) {
-      let employees = JSON.parse(localStorage.getItem("empList")) || [];
-      const employee = employees[index];
-  
-      // Store selected employee index in localStorage
-      localStorage.setItem("editEmpIndex", index);
-      localStorage.setItem("editEmpData", JSON.stringify(employee));
-  
-      // Redirect to the registration page to edit
-      window.location.href = "./EmpRegister.html";
-    }
-  
-    // Event listener for search input
-    searchBox.addEventListener("input", function () {
-      renderEmployeeList(this.value);
-    });
-    
-  
-    // Call render function on page load
-    renderEmployeeList();
-  });
-  
+
+    $addUserButton.on("click", addEmployee);
+    $searchBox.on("input", searchByName);
+
+    loadEmployees();
+});

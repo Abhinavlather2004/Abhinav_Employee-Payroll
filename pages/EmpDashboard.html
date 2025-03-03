@@ -1,119 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Payroll</title>
-    <link rel="stylesheet" href="../styles/EmpDashboard.css">
-    
-    <script src="../js/EmpDashboard.js" defer></script>
-
+    <title>Employee Payroll Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../styles/empDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="../assets/Logo.jpeg" type="image/icon_type">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script defer src="../js/empDashboard.js"></script>
 </head>
-
 <body>
-    <div class="emp-home-outer-div">
-        <!-- Header Section -->
-        <nav class="emp-home-header-div">
-            <div class="emp-home-header-inner-div">
-                <div class="emp-home-header-icon">
-                    <img class="emp-home-header-logo" src="../assets/icon.jpeg" alt="Logo Not Found">
-                    <div class="emp-home-header-text">
-                      
-                        <div class="emp-home-header-title" id="emp">EMPLOYEE</div>
-                        <div class="emp-home-header-title" id="pay">PAYROLL</div>
+    <div class="emp-dash-outer-div">
+        <div class="emp-dash-header-div">
+            <a href="./empDashboard.html" class="emp-dash-header-logo">
+                <img src="../assets/Logo.jpeg" alt="Logo Not found" class="emp-dash-header-logo-img">
+            </a>
+            <div class="emp-dash-header-title">
+                <span>EMPLOYEE</span>
+                <span>PAYROLL</span>
+            </div>
+        </div>
+
+        <div class="emp-dash-main-content">
+            <div class="emp-dash-nav">
+                <div class="emp-dash-nav-heading">
+                    <h2>Employee Details</h2>
+                </div>
+                <div class="emp-dash-nav-functions">
+                    <div class="emp-dash-nav-search-box">
+                        <div class="search-container">
+                            <input type="text" id="emp-dash-main-search-box" placeholder="Search employee..." oninput="searchByName()">
+                        </div>
+                    </div>
+                    <div class="emp-dash-nav-add-user">
+                        <button type="button">
+                            <i class="fa-solid fa-plus"></i>
+                            <p>Add User</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emp-dash-table">
+                <table class="emp-dash-table-content">
+                    <thead class="emp-dash-table-header">
+                        <tr>
+                            <th>NAME</th>
+                            <th>GENDER</th>
+                            <th>DEPARTMENT</th>
+                            <th>SALARY</th>
+                            <th>START DATE</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="emp-dash-table-body">
                         
-                    </div>
-                </div>
+                    </tbody>
+                </table>                
             </div>
-        </nav>
-
-        <!--  Main  -->
-        <main class="emp-home-main">
-            <!-- Heading -->
-            <div class="emp-home-main-heading">
-                <div class="emp-home-main-inner">
-                    <div class="emp-home-main-heading-left">
-                        <p>Employee Details</p>
-                    </div>
-                    <div class="emp-home-main-heading-right">
-                        <div class="emp-home-main-search">
-                            <div class="emp-home-main-search">
-                                <input type="text" id="search-box" placeholder="Search..." />
-                                <!-- <img src="../assets/searchIcon.png" alt="Search Icon" id="search-icon">
-                                <img src="../assets/crossIcon.png" alt="Cross Icon" class="crossIcon"> -->
-                            </div>
-                        </div>
-                        <a href="./EmpRegister.html" style="text-decoration: none;">
-                            <div class="emp-home-main-add">
-                                <img src="../assets/plusIcon.png" alt="Plus Icon">
-                                <p>Add User</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <main class="emp-home-main-div">
-                <div class="emp-home-reg-heading">
-                    <div class="reg-name center">Name</div>
-                    <div class="reg-gender center">Gender</div>
-                    <div class="reg-dept center">Department</div>
-                    <div class="reg-salary center">Salary</div>
-                    <div class="reg-start-date center">Start Date</div>
-                    <div class="reg-actions center">Actions</div>
-                </div>
-                <div class="emp-home-reg-body" id="employee-list">
-                    <!-- <div class="emp-home-emp1">
-                        <div class="reg-emp-name reg-name center">
-                          <div style="width: 20%; border: 1px solid blue">
-                            <img src="../assets/user4.jpeg" alt="Employee 1">
-                          </div>
-                          <div style="width: 78%;">
-                            <p>Abhinav Lather</p>
-                          </div>
-                        </div>
-                        <div class="reg-emp-gender reg-gender center">Male</div>
-                        <div class="reg-emp-dept reg-dept center">
-                            
-                            <div class="dept">Engineering</div>
-                        </div>
-                        <div class="reg-emp-salary reg-salary center">$30000</div>
-                        <div class="reg-emp-start-date reg-start-date center">1 January 2020</div>
-                        <div class="reg-emp-actions reg-actions center">
-                            <img src="../assets/deleteIcon.png" alt="Delete Icon" class="action-icon delete">
-                            <img src="../assets/editIcon.webp" alt="Edit Icon" class="action-icon edit">
-                        </div>
-                    </div>
-
-                    <div class="emp-home-emp2">
-                      <div class="reg-emp-name reg-name center">
-                          <div style="width: 20%;">
-                          <img src="../assets/user1.jpeg" alt="Employee 2">
-                          </div>
-                          <div style="width: 78%; border: 1px solid red">
-                          <p>Priyanshu</p>
-                          </div>
-                      </div>
-                      <div class="reg-emp-gender reg-gender center">Male</div>
-                      <div class="reg-emp-dept reg-dept center">
-                          
-                          <div class="dept">Engineering</div>
-                          <div class="dept">Sales</div>
-                      </div>
-                      <div class="reg-emp-salary reg-salary center">$50000</div>
-                      <div class="reg-emp-start-date reg-start-date center">2 January 2020</div>
-                      <div class="reg-emp-actions reg-actions center">
-                          <img src="../assets/deleteIcon.png" alt="Delete Icon" class="action-icon delete">
-                          <img src="../assets/editIcon.webp" alt="Edit Icon" class="action-icon edit">
-                      </div>
-                  </div> -->
-
-                </div>
-            </main>
-        </main>
+        </div>
     </div>
 </body>
-
 </html>

@@ -1,0 +1,16 @@
+{
+  "employees": [
+    {
+      "id": "ce08",
+      "name": "abhi",
+      "profileImage": "http://127.0.0.1:5501/assets/Male2.jpeg",
+      "gender": "Male",
+      "departments": [
+        "Finance"
+      ],
+      "salary": "$25,000",
+      "startDate": "01-March-2023",
+      "notes": "hello"
+    }
+  ]
+}
